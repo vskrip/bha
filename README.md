@@ -1,4 +1,13 @@
-# bha
+# BHA
+## Install scaffolding
+
+Making of project folde and come into
+
+`mkdir bha && cd $_`
+
+Project files generating
+
+`yo angular-fullstack bha`
 
 This project was generated with the [Angular Full-Stack Generator](https://github.com/DaftMonk/generator-angular-fullstack) version 3.4.2.
 
