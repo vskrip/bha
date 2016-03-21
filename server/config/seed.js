@@ -6,6 +6,7 @@
 'use strict';
 import Thing from '../api/thing/thing.model';
 import User from '../api/user/user.model';
+import Project from '../api/project/project.model';
 
 Thing.find({}).remove()
   .then(() => {
@@ -55,5 +56,43 @@ User.find({}).remove()
     })
     .then(() => {
       console.log('finished populating users');
+    });
+  });
+	
+Project.find({}).remove()
+  .then(() => {
+    Project.create({
+      field: 'Labaganskoe',
+      site: '5A',
+      well: '42848',
+      customer: 'RN - Burenie',
+			jobNumber: '',
+			startDate: '10/05/2015',
+			finishDate: '11/07/2015',
+			isCurrent: false,
+			tenant: 'test@example.com'
+    }, {
+      field: 'Vstrechnoe',
+      site: '1',
+      well: '345',
+      customer: 'ERIELL',
+			jobNumber: '',
+			startDate: '12/03/2015',
+			finishDate: '01/06/2016',
+			isCurrent: false,
+			tenant: 'test@example.com'
+    }, {
+      field: 'Priobskoe',
+      site: '336',
+      well: '3087',
+      customer: 'ERIELL',
+			jobNumber: '',
+			startDate: '02/04/2016',
+			finishDate: '',
+			isCurrent: true,
+			tenant: 'test@example.com'
+    })
+    .then(() => {
+      console.log('finished populating projects');
     });
   });
