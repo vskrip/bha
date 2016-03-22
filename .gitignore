@@ -8,3 +8,5 @@ dist
 /server/config/local.env.js
 npm-debug.log
 coverage
+/server/db/_tmp
+/server/db/journal
