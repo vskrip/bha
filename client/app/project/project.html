@@ -1,10 +1,19 @@
-<div class="container" ng-controller="ProjectComponent">
+<div class="container">
   <h2>Project List</h2>
-    <ul class="list-group project-list">
-    <li class="list-group-item" ng-repeat="project in projectList">
-	    <div class="project-info">
-	        <strong>{{project.field}}</strong><br>
-	    </div>
-    </li>
-  </ul>
+    <table class="table projects-table">
+      <tr>
+        <th>Field</th>
+        <th>Site</th>
+        <th>Well Number</th>
+        <th class="action-column"></th>
+        <th class="action-column"></th>
+      </tr>
+      <tr ng-repeat="project in projectList">
+        <td>{{project.field}}</td>
+        <td>{{project.site}}</td>
+        <td>{{project.well}}</td>
+        <td><a ui-sref="projects.edit({ id: project.id })"><i class="fa fa-pencil-square-o"></i></a></td>
+        <td><a ng-click="vm.deleteProject(project.id)"><i class="fa fa-remove"></i></a></td>
+      </tr>
+    </table>
 </div>

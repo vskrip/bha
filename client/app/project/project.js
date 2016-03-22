@@ -3,11 +3,11 @@
 angular.module('bhaApp.project')
   .config(function ($stateProvider) {
     $stateProvider
-      .state('project', {
-        url: '/project',
+      .state('projects', {
+        url: '/projects',
         templateUrl: 'app/project/project.html',
-        controller: 'ProjectComponent',
-        controllerAs: 'project',
+        controller: 'ProjectController',
+        controllerAs: 'vm',
         authenticate: 'user'
       });
   });

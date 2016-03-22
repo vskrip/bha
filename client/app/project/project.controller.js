@@ -1,4 +1,4 @@
-// 'use strict';
+'use strict';
 //
 // (function(){
 //
@@ -26,7 +26,7 @@
 // })();
 
 angular.module('bhaApp.project')
-  .controller('ProjectComponent', function ($scope, $http) {
+  .controller('ProjectController', function ($scope, $http) {
     $scope.projectList = [];
 
     $http.get('/api/projects').success(function(projectList) {
