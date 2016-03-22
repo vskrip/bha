@@ -3,6 +3,7 @@
 angular.module('bhaApp', [
   'bhaApp.auth',
   'bhaApp.admin',
+	'bhaApp.project',
   'bhaApp.constants',
   'ngCookies',
   'ngResource',

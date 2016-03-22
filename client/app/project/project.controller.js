@@ -1,16 +1,36 @@
-'use strict';
-(function(){
+// 'use strict';
+//
+// (function(){
+//
+// class ProjectComponent {
+//
+//   constructor($http) {
+// 		this.$http = $http;
+//     this.projectList = [];
+//   }
+//
+//   $onInit() {
+//     this.$http.get('/api/projects').then(response => {
+//       this.projectList = response.data;
+//     });
+//   }
+//
+// }
+//
+// angular.module('bhaApp')
+//   .component('project', {
+//     templateUrl: 'app/project/project.html',
+//     controller: ProjectComponent
+//   });
+//
+// })();
 
-class ProjectComponent {
-  constructor() {
-    this.message = 'Hello';
-  }
-}
+angular.module('bhaApp.project')
+  .controller('ProjectComponent', function ($scope, $http) {
+    $scope.projectList = [];
 
-angular.module('bhaApp')
-  .component('project', {
-    templateUrl: 'app/project/project.html',
-    controller: ProjectComponent
+    $http.get('/api/projects').success(function(projectList) {
+      $scope.projectList = projectList;
+    });
+
   });
-
-})();
