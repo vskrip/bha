@@ -9,6 +9,7 @@ describe('Main View', function() {
 	beforeEach(function() {
 		browser.get(config.baseUrl + '/');
 		page = require('./main.po');
+		footer = require('../components/footer/footer.po');
 	});
 
 	it('should include jumbotron with correct data', function() {
@@ -46,5 +47,13 @@ describe('Main View', function() {
 		expect(listThumbBtn.get(2).getText()).toBe('Equipment');
 		expect(listThumbBtn.get(3).getText()).toBe('Groups');
 
+	});
+	
+	it('should contain footer element with correct data', function() {
+		expect(footer.footerCopy.getText()).toBe('Copyright ' + 0xA9 + ' Vladimir Skripachev');
+		expect(footer.footerMenu.get(0).getText()).toBe('Home');
+		expect(footer.footerMenu.get(1).getText()).toBe('About');
+		expect(footer.footerMenu.get(2).getText()).toBe('Contact');
+		expect(footer.footerEmail.getText()).toBe('vskrip33@gmail.com');
 	});
 });
