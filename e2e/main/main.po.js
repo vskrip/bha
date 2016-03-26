@@ -11,10 +11,10 @@ var MainPage = function() {
   this.pEl = this.heroEl.element(by.css('p'));
   this.imgEl = this.heroEl.element(by.css('img'));
 
-  this.thumbEl = this.element(by.css('thumbnail'));
-  this.thumbImgEl = this.thumbEl.element(by.css('img'));
-  this.thumbH2El = this.thumbEl.element(by.css('h2'));
-  this.thumbBtnEl = this.thumbEl.element(by.css('btn'));
+	this.footer = element(by.css('.footer'));
+	this.footerCopy = this.footer.element(by.css('.footer-copy'));
+	this.footerMenu = this.footer.element(by.css('.footer-menu'));
+	this.footerEmail = this.footer.element(by.css('.footer-email'));	
 };
 
 module.exports = new MainPage();
