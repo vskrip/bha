@@ -15,7 +15,7 @@
 
 .hero-unit {
   position: relative;
-  padding: 30px 15px;
+  padding: 70px 15px;
   color: #F5F5F5;
   text-align: center;
   text-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
@@ -27,8 +27,7 @@
 }
 
 div.row.thumbnail-row {
- margin-left: 40px;
- margin-right: 40px;
+	margin: 30px;
 }
 
 .thumb-service {
@@ -53,4 +52,16 @@ div.row.thumbnail-row {
 
 .thumbnail .caption h3 {
 	text-align: center;
+}
+
+.footer {
+	margin-left: 65px;
+	margin-right: 65px;
+}
+.footer-copy {
+	float: left;
+}
+
+.footer-menu .footer-email {
+	float: right;
 }
