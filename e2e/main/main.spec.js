@@ -5,10 +5,12 @@ var config = browser.params;
 describe('Main View', function() {
 
 	var page;
+	var footer;
 
 	beforeEach(function() {
 		browser.get(config.baseUrl + '/');
 		page = require('./main.po');
+		footer = require('../components/footer/footer.po');
 	});
 
 	it('should include jumbotron with correct data', function() {
@@ -54,8 +56,8 @@ describe('Main View', function() {
 	});
 	
 	it('should contain footer element with correct data', function() {
-		expect(page.footerCopy.getText()).toBe('Copyright ' + '\u00A9' + ' Vladimir Skripachev');
-		expect(page.footerMenu.getText()).toBe('Home | About | Contact');
-		expect(page.footerEmail.getText()).toBe('vskrip33@gmail.com');
+		expect(footer.footerCopy.getText()).toBe('Copyright ' + '\u00A9' + ' Vladimir Skripachev');
+		expect(footer.footerMenu.getText()).toBe('Home | About | Contact');
+		expect(footer.footerEmail.getText()).toBe('vskrip33@gmail.com');
 	});
 });

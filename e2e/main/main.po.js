@@ -10,11 +10,6 @@ var MainPage = function() {
   this.h1El = this.heroEl.element(by.css('h1'));
   this.pEl = this.heroEl.element(by.css('p'));
   this.imgEl = this.heroEl.element(by.css('img'));
-
-	this.footer = element(by.css('.footer'));
-	this.footerCopy = this.footer.element(by.css('.footer-copy'));
-	this.footerMenu = this.footer.element(by.css('.footer-menu'));
-	this.footerEmail = this.footer.element(by.css('.footer-email'));	
 };
 
 module.exports = new MainPage();
