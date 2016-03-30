@@ -6,9 +6,13 @@
 'use strict';
 
 var ProjectPage = function() {
+  this.projCurrent = element(by.css('alert'));
+
+	this.projEmpty = element(by.css('.empty-info'));
+
   this.projTab = element(by.css('.projects-table'));
   this.projTabTh = this.projTab.element(by.css('th'));
-  this.projeTabTd = this.projTab.element(by.css('td'));
+  this.projTabTd = this.projTab.element(by.css('td'));
 };
 
 module.exports = new ProjectPage();
