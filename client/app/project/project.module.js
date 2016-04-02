@@ -1,5 +1,6 @@
 'use strict';
 
 angular.module('bhaApp.project', [
-  'ui.router'
+  'ui.router',
+	'ngAnimate'
 ]);

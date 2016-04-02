@@ -1,3 +1,21 @@
+/* MAIN STYLES
+--------------------------------------------------------------------- */
+main {
+	padding: 0 0px;
+	min-height: 360px;
+	left: 2%;
+	top: 50px;
+	width: 100%;	
+
+	.projects-table {
+		margin-top: 20px;
+
+		.action-column {
+			width: 60px;
+		}
+	}
+}
+
 .thing-form {
   margin: 20px 0;
 }
@@ -52,16 +70,4 @@ div.row.thumbnail-row {
 
 .thumbnail .caption h3 {
 	text-align: center;
-}
-
-.footer {
-	margin-left: 65px;
-	margin-right: 65px;
-}
-.footer-copy {
-	text-align: left;
-}
-
-.footer-menu {
-	text-align: right;
 }

@@ -1,36 +1,21 @@
 'use strict';
-//
-// (function(){
-//
-// class ProjectComponent {
-//
-//   constructor($http) {
-// 		this.$http = $http;
-//     this.projectList = [];
-//   }
-//
-//   $onInit() {
-//     this.$http.get('/api/projects').then(response => {
-//       this.projectList = response.data;
-//     });
-//   }
-//
-// }
-//
-// angular.module('bhaApp')
-//   .component('project', {
-//     templateUrl: 'app/project/project.html',
-//     controller: ProjectComponent
-//   });
-//
-// })();
 
 angular.module('bhaApp.project')
   .controller('ProjectController', function ($scope, $http) {
-    $scope.projectList = [];
+		var vm = this;
+    vm.projectList = [];
 
-    $http.get('/api/projects').success(function(projectList) {
-      $scope.projectList = projectList;
-    });
+		initController();
 
+		function initController() {
+			loadProjects();
+
+			$scope.$on('projects-updated', loadProjects);
+		};
+
+		function loadProjects() {
+	    $http.get('/api/projects').success(function(projectList) {
+	      vm.projectList = projectList;
+	    });
+		};
   });
