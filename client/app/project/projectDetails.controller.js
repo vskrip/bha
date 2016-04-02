@@ -14,15 +14,18 @@ angular.module('bhaApp.project')
 		function initController() {
 			if ($stateParams.id) {
 				vm.title = 'Edit Project';
-				vm.project = vm.$http.get('/api/projects/' + $stateParams.id);
+				$http.get('/api/projects/' + $stateParams.id)
+					.success(function(project) {
+		      	vm.project = project;
+		    	});
 			}
 		}
 
 		function saveProject() {
 			
-			vm.$http.put('/api/projects/' + vm.project._id, vm.project);
+			$http.put('/api/projects/' + vm.project._id, vm.project);
 
-			$state.go('projects');
+			$state.go('/api/projects');
 
 			$scope.$emit('projects-updated');
 		}	

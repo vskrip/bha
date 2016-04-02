@@ -15,8 +15,8 @@
         <td>{{project.field}}</td>
         <td>{{project.site}}</td>
         <td>{{project.well}}</td>
-        <td><a ui-sref="projects.edit({ id: project.id })"><i class="fa fa-pencil-square-o"></i></a></td>
-        <td><a ng-click="vm.deleteProject(project.id)"><i class="fa fa-remove"></i></a></td>
+        <td><a ui-sref="projects.edit({ id: project._id })"><i class="fa fa-pencil-square-o"></i></a></td>
+        <td><a ng-click="vm.deleteProject(project._id)"><i class="fa fa-remove"></i></a></td>
       </tr>
     </table>
   </div>
