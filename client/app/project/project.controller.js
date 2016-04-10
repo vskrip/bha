@@ -5,17 +5,17 @@ angular.module('bhaApp.project')
 		var vm = this;
     vm.projectList = [];
 
-		initController();
+    function loadProjects() {
+    $http.get('/api/projects').success(function(projectList) {
+        vm.projectList = projectList;
+    });
+    }
 
-		function initController() {
-			loadProjects();
+    function initController() {
+        loadProjects();
 
-			$scope.$on('projects-updated', loadProjects);
-		};
+        $scope.$on('projects-updated', loadProjects);
+    }
 
-		function loadProjects() {
-	    $http.get('/api/projects').success(function(projectList) {
-	      vm.projectList = projectList;
-	    });
-		};
+    initController();
   });
