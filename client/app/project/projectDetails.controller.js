@@ -11,7 +11,7 @@ angular.module('bhaApp.project')
         
         $http.put('/api/projects/' + vm.project._id, vm.project);
 
-        $state.go('/api/projects');
+        $state.go('projects');
 
         $scope.$emit('projects-updated');
     }

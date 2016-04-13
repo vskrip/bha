@@ -12,6 +12,7 @@ angular.module('bhaApp.project')
       })
       .state('projects.add', {
         url: '/add',
+        parent: 'projects',        
         templateUrl: 'app/project/projectDetails.html',
         controller: 'ProjectDetailsController',
         controllerAs: 'vm',
@@ -19,6 +20,7 @@ angular.module('bhaApp.project')
       })
       .state('projects.edit', {
         url: '/edit/:id',
+        parent: 'projects',        
         templateUrl: 'app/project/projectDetails.html',
         controller: 'ProjectDetailsController',
         controllerAs: 'vm',
