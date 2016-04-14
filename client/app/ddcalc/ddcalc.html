@@ -1,0 +1,317 @@
+<div class="container">
+  <h2>DD Calculator</h2>
+  <div class="calc-container col-sm-6 col-md-6">
+    <div class="thumbnail">
+        <div class="calc-block">
+        <h3>Motor Dogleg Out Put</h3>
+            <p>
+            <strong>MOP = (PSD x SL) / AS, ˚/10m</strong>
+                <div class="calc-input">
+                <strong>MOP</strong> = (
+                    <input type="number" 
+                            data-ng-model="vm.presentSurveyDogleg"
+                            placeholder="PSD">  x 
+                    <input type="number"
+                            data-ng-model="vm.singleLength"
+                            placeholder="SL"> ) / 
+                    <input type="number"
+                            data-ng-model="vm.amountOfSlide"
+                            placeholder="AS">  =  <span id="mop">{{vm.getMotorDoglegOutPut() | number:2}}˚/10m</span>
+                </div>
+                <div class="calc-designation">
+                <ul>
+                    <li><strong>MOP</strong> - Motor Dogleg Out Put, ˚/10m</li>
+                    <li><strong>PSD</strong> - Present Survey Dogleg, ˚/m</li>
+                    <li><strong>SL</strong> - Single Length, m</li>
+                    <li><strong>AS</strong> - Amount Of Slide, m</li>
+                </ul>
+                </div>
+                Example: <i>MOP = (1.69˚/m x 12.2m) / 9m = 2.29˚/10m</i>
+            </p>
+        </div>
+    </div>
+    </div>
+    <div class="calc-container col-sm-6 col-md-6">
+    <div class="thumbnail">
+        <div class="calc-block">
+        <h3>Build Rate per Meter</h3>
+        <p>
+            <strong>BR/m = (PresSInc - PrevSInc) / MS, ˚/m</strong>
+            <div class="calc-input">
+            <strong>BR/m</strong> = (
+            <input type="number"
+                    data-ng-model="vm.presentSurveyInclinometer"
+                    placeholder="PresSInc">  -
+            <input type="number"
+                    data-ng-model="vm.previousSurveyInclinometer"
+                    placeholder="PrevSInc"> ) /
+            <input type="number"
+                    data-ng-model="vm.metersOfSlide"
+                    placeholder="MS">  =  <span id="buildRatePerMeter">{{vm.getBuildRatePerMeter() | number:2}}˚/m = 
+                    {{vm.buildRatePerMeter * 10 | number:2}}˚/10m</span>
+            </div>
+            <div class="calc-designation">
+            <ul>
+                <li><strong>BR/m</strong> - Build Rate per Meter, ˚/m</li>
+                <li><strong>PresSInc</strong> - Present Survey Inclinometer, ˚</li>
+                <li><strong>PrevSInc</strong> - Previous Survey Inclinometer, ˚</li>
+                <li><strong>MS</strong> - Meters Of Slide, m</li>
+            </ul>
+            </div>
+            Example: <i>BR/m = (48.25˚ - 46.20˚) / 9m = 0.23˚/m = 2.28˚/10m</i>
+        </p>
+        </div>
+    </div>
+    </div>
+    <div class="calc-container col-sm-6 col-md-6">
+    <div class="thumbnail">
+        <div class="calc-block">
+        <h3>Inclinometer At Bit</h3>
+        <p>
+            <strong>BitInc = (BR/m x AS) + PresSInc, ˚</strong>
+            <div class="calc-input">
+            <strong>BitInc</strong> = (
+            <input type="number"
+                    data-ng-model="vm.buildRatePerMeterForBitInclinometer"
+                    placeholder="BR/m">  x
+            <input type="number"
+                    data-ng-model="vm.amountOfSlideAhead"
+                    placeholder="AS"> )  +
+            <input type="number"
+                    data-ng-model="vm.presentSurveyInclinometerForBitInclinometer"
+                    placeholder="PresSInc">  =  <span id="inclinometerAtBit">{{vm.getInclinometerAtBit() | number:2}}˚</span>
+            </div>
+            <div class="calc-designation">
+            <ul>
+                <li><strong>BitInc</strong> - Inclinometer At Bit, ˚</li>
+                <li><strong>BR/m</strong> - Build Rate per Meter, ˚/m</li>
+                <li><strong>AS</strong> - Amount Of Slide Ahead, m</li>
+                <li><strong>PresSInc</strong> - Present Survey Inclinometer, ˚</li>
+            </ul>
+            </div>
+            Example: <i>BitInc = 0.22˚ x 12.5m + 48.25˚ = 51˚</i>
+        </p>
+        </div>
+    </div>
+    </div>
+    <div class="calc-container col-sm-6 col-md-6">
+    <div class="thumbnail">
+        <div class="calc-block">
+        <h3>TVD At Present</h3>
+        <p>
+            <strong>PresTVD = cos((PresSInc + PrevSInc) / 2) x SL + PrevTVD, m</strong>
+            <div class="calc-input">
+            <strong>PresTVD</strong> = cos((
+            <input type="number"
+                    data-ng-model="vm.presentSurveyInclinometerForPresentTVD"
+                    placeholder="PresSInc">  +
+            <input type="number"
+                    data-ng-model="vm.previousSurveyInclinometerForPresentTVD"
+                    placeholder="PrevSInc"> ) / 2 ) x
+            <input type="number"
+                    data-ng-model="vm.singleLengthForPresentTVD"
+                    placeholder="SL">  +
+            <input type="number"
+                    data-ng-model="vm.previousTVDForPresentTVD"
+                    placeholder="PrevTVD">  =  <span id="presentTVD">{{vm.getPresentTVD() | number:2}}m</span>
+            </div>
+            <div class="calc-designation">
+            <ul>
+                <li><strong>PresTVD</strong> - Present TVD, m</li>
+                <li><strong>PresSInc</strong> - Present Survey Inclinometer, ˚</li>
+                <li><strong>PrevSInc</strong> - Previous Survey Inclinometer, ˚</li>
+                <li><strong>SL</strong> - Single Length, m</li>
+                <li><strong>PrevTVD</strong> - Previous TVD, m</li>
+            </ul>
+            </div>
+            Example: <i>PresTVD = cos((48.25˚ + 46.20˚) / 2) x 12.20m + 2413.74m = 2422.02m</i>
+        </p>
+        </div>
+    </div>
+    </div>
+    <div class="calc-container col-sm-6 col-md-6">
+    <div class="thumbnail">
+        <div class="calc-block">
+        <h3>TVD At Bit</h3>
+        <p>
+            <strong>BitTVD = cos((BitInc + PresSInc) / 2) x PTB + PresTVD, m</strong>
+            <div class="calc-input">
+            <strong>BitTVD</strong> = cos((
+            <input type="number"
+                    data-ng-model="vm.inclinometerAtBitForTvdAtBit"
+                    placeholder="BitInc">  +
+            <input type="number"
+                    data-ng-model="vm.presentSurveyInclinometerForTvdAtBit"
+                    placeholder="PresSInc"> ) / 2 ) x
+            <input type="number"
+                    data-ng-model="vm.distanceFromSurveyPointToBit"
+                    placeholder="PTB">  +
+            <input type="number"
+                    data-ng-model="vm.presentTvdForTvdAtBit"
+                    placeholder="PresTVD">  =  <span id="tvdAtBit">{{vm.getTvdAtBit() | number:2}}m</span>
+            </div>
+            <div class="calc-designation">
+            <ul>
+                <li><strong>BitTVD</strong> - TVD At Bit, m</li>
+                <li><strong>BitInc</strong> - Inclinometer At Bit, ˚</li>
+                <li><strong>PresSInc</strong> - Present Survey Inclinometer, ˚</li>
+                <li><strong>PTB</strong> - Distance From Survey Point To Bit, m</li>
+                <li><strong>PresTVD</strong> - Present TVD, m</li>
+            </ul>
+            </div>
+            Example: <i>BitTVD = cos((51˚ + 48.25˚) / 2) x 10.3m + 2422.02m = 2428.70m</i>
+        </p>
+        </div>
+    </div>
+    </div>
+    <div class="calc-container col-sm-6 col-md-6">
+    <div class="thumbnail">
+        <div class="calc-block">
+        <h3>Build Up Rate Required to Target</h3>
+        <p>
+            <strong>BURReqTgt = (sin(TgtInc) - sin(BitInc)) / (TgtTVD - BitTVD) x 
+            <!--
+                TODO Edit formula - change value 1719
+            -->
+            <span style="color:red;">1719</span>, ˚/m</strong>
+            <div class="calc-input">
+            <strong>BURReqTgt</strong> = (sin(
+            <input type="number"
+                    data-ng-model="vm.inclinometerAtTargetForBuildUpRateToTarget"
+                    placeholder="TgtInc"> )  - sin(
+            <input type="number"
+                    data-ng-model="vm.inclinometerAtBitForBuildUpRateToTarget"
+                    placeholder="BitInc"> )) / (
+            <input type="number"
+                    data-ng-model="vm.tvdAtTargetForBuildUpRateToTarget"
+                    placeholder="TgtTVD">  -
+            <input type="number"
+                    data-ng-model="vm.tvdAtBitForBuildUpRateToTarget"
+                    placeholder="BitTVD"> )  x 
+            <span style="color:red;">
+                1719
+            </span>  =  
+            <span id="buildUpRateRequiredToTarget">
+                {{vm.getBuildUpRateRequiredToTarget() | number:2}}˚/m = 
+                {{vm.buildUpRateRequiredToTarget / 3 | number:2}}˚/10m
+            </span>
+            </div>
+            <div class="calc-designation">
+            <ul>
+                <li><strong>BURReqTgt</strong> - Build Up Rate Required to Target, ˚/m</li>
+                <li><strong>TgtInc</strong> - Inclinometer At Target, ˚</li>
+                <li><strong>BitInc</strong> - Inclinometer At Bit, ˚</li>
+                <li><strong>TgtTVD</strong> - TVD At Target, m</li>
+                <li><strong>BitTVD</strong> - TVD At Bit, m</li>
+                <li style="color:red;"><strong>1719</strong> - 1719, m</li>
+            </ul>
+            </div>
+            Example:<br><i>BURReqTgt = (sin88.50˚ – sin51˚) / (2516.70m - 2428.70m) x 
+            <span style="color:red;">1719</span>m = 4.346 ˚/30m</i><br>
+            <i>BURReqTgt = 4.346˚ / 3 = 1.45 ˚/10m</i>
+        </p>
+        </div>
+    </div>
+    </div>
+    <div class="calc-container col-sm-6 col-md-6">
+    <div class="thumbnail">
+        <div class="calc-block">
+        <h3>Amount of Meters to Slide</h3>
+        <p>
+            <strong>AMS = (BURReq / BR/m) x SL / 10m, m</strong>
+            <div class="calc-input">
+            <strong>AMS</strong> = (
+            <input type="number"
+                    data-ng-model="vm.buildUpRateRequired"
+                    placeholder="BURReq">  /
+            <input type="number"
+                    data-ng-model="vm.buildUpRatePerMeter"
+                    placeholder="BR/m"> ) x
+            <input type="number"
+                    data-ng-model="vm.nextSingleLength"
+                    placeholder="SL"> / 10m =  
+                    <span id="amountOfMetersToSlide">
+                        {{vm.getAmountOfMetersToSlide() | number:2}}m
+                    </span>
+            </div>
+            <div class="calc-designation">
+            <ul>
+                <li><strong>AMS</strong> - Amount Of Meters To Slide, m</li>
+                <li><strong>BURReq</strong> - Build Up Rate Required, ˚/10m</li>
+                <li><strong>BR/m</strong> - Build Rate Per Meter, ˚/m</li>
+                <li><strong>SL</strong> - Next Single Length, m</li>
+            </ul>
+            </div>
+            Example: <i>AMS = (1.5˚ / 0.22˚) x 12.20m / 10m = 8.32m</i>
+        </p>
+        </div>
+    </div>
+    </div>
+    <div class="calc-container col-sm-6 col-md-6">
+    <div class="thumbnail">
+        <div class="calc-block">
+        <h3>Survey Dogleg Calculation</h3>
+        <p>
+            <strong>SD = (PresSInc - PrevSInc) / CL x 10m, ˚/10m</strong>
+            <div class="calc-input">
+            <strong>SD</strong> = (
+            <input type="number"
+                    data-ng-model="vm.presentSurveyInclinometerForSurveyDogleg"
+                    placeholder="PresSInc">  -
+            <input type="number"
+                    data-ng-model="vm.previousSurveyInclinometerForSurveyDogleg"
+                    placeholder="PrevSInc"> ) /
+            <input type="number"
+                    data-ng-model="vm.courseLength"
+                    placeholder="CL"> x 10m =  
+                    <span id="sourveyDogleg">
+                        {{vm.getSourveyDogleg() | number:2}}˚/10m
+                    </span>
+            </div>
+            <div class="calc-designation">
+            <ul>
+                <li><strong>SD</strong> - Survey Dogleg, ˚/10m</li>
+                <li><strong>PresSInc</strong> - Present Survey Inclinometr, ˚</li>
+                <li><strong>PrevSInc</strong> - Previous Survey Inclinometr, ˚</li>
+                <li><strong>CL</strong> - Course Length, m</li>
+            </ul>
+            </div>
+            Example: <i>SD = (48.25˚ - 46.20˚) / 12.20m x 10m = 1.68 ˚/10m</i>
+        </p>
+        </div>
+    </div>
+    </div>
+    <div class="calc-container col-sm-6 col-md-6">
+    <div class="thumbnail">
+        <div class="calc-block">
+        <h3>Survey Turn Rate Calculation</h3>
+        <p>
+            <strong>STR = (PresSAzm - PrevSAzm) / CL x 10m, ˚/10m</strong>
+            <div class="calc-input">
+            <strong>STR</strong> = (
+            <input type="number"
+                    data-ng-model="vm.presentSurveyAzimuth"
+                    placeholder="PresSAzm">  -
+            <input type="number"
+                    data-ng-model="vm.previousSurveyAzimuth"
+                    placeholder="PrevSAzm"> ) /
+            <input type="number"
+                    data-ng-model="vm.courseLengthForTurnRate"
+                    placeholder="CL"> x 10m =  
+                    <span id="sourveyTurnRate">
+                        {{vm.getSurveyTurnRate() | number:2}}˚/10m
+                    </span>
+            </div>
+            <div class="calc-designation">
+            <ul>
+                <li><strong>STR</strong> - Survey Turn Rate, ˚/10m</li>
+                <li><strong>PresSAzm</strong> - Present Survey Azimuth, ˚</li>
+                <li><strong>PrevSAzm</strong> - Previous Survey Azimuth, ˚</li>
+                <li><strong>CL</strong> - Course Length, m</li>
+            </ul>
+            </div>
+            Example: <i>STR = (249.26˚ - 249.02˚) / 12.20m x 10m = 0.2 ˚/10m</i>
+        </p>
+        </div>
+    </div>
+</div>
